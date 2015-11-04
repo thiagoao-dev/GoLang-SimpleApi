@@ -30,5 +30,5 @@ func getConn() (*gorm.DB, error) {
   // Disable table name's pluralization
   // db.SingularTable(true)
 
-  return *db, nil
+  return db.DB(), nil
 }
