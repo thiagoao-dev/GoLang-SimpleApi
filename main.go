@@ -1,27 +1,36 @@
 package main
 
 import (
-  "database/sql"
-  _ "github.com/go-sql-driver/mysql"
-  "encoding/json"
-  "net/http"
-  "github.com/gorilla/mux"
   "fmt"
   "time"
   "log"
+  "net/http"
+  "database/sql"
+  "encoding/json"
+  
+  "github.com/gorilla/mux"
 )
 
-type API struct {
-  Message string "json:message"
+func main() {
+  
+  r := mux.NewRouter()
+  r.HandleFunc("/api/{user:[0-9]+}", Hello)
+  //r.HandleFunc("/api/user/create", CreateUser).Methods("GET")
+  //r.HandleFunc("/api/user/{id:[0-9]+}", GetUser).Methods("GET")
+  http.Handle("/", r)
+  
+  s := &http.Server {
+    Addr: ":8080",
+    ReadTimeout: 10 * time.Second,
+    WriteTimeout: 10 * time.Second,
+  }
+  s.ListenAndServe()
 }
 
-type User struct {
-  ID int64 "json:id"
-  Name string "json:username"
-  Email string "json:email"
-  First string "json:first"
-  Last string "json:last"
+func Hello(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "Hello World")
 }
+/*
 
 // GetUser
 func GetUser(w http.ResponseWriter, r *http.Request) {
@@ -35,7 +44,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
   ReadUser := User{}
   
   // Created db connection
-  db, err := sql.Open("mysql", "sql593836:cE9*kN6!@tcp(sql5.freesqldatabase.com:3306)/sql593836")
+  db, err := sql.Open("mysql", "user01:sUtJSsPKnBv9PQXD@tcp(104.197.132.233:3306)/user01")
   if err != nil {
     fmt.Println(err)
   }
@@ -121,20 +130,4 @@ func Hello(w http.ResponseWriter, r *http.Request) {
   
   fmt.Fprintf(w, string(output))
 }
-
-func main() {
-  
-  r := mux.NewRouter()
-  r.HandleFunc("/api/{user:[0-9]+}", Hello)
-  r.HandleFunc("/api/user/create", CreateUser).Methods("GET")
-  r.HandleFunc("/api/user/{id:[0-9]+}", GetUser).Methods("GET")
-  http.Handle("/", r)
-  
-  s := &http.Server {
-    Addr: ":8080",
-    ReadTimeout: 10 * time.Second,
-    WriteTimeout: 10 * time.Second,
-  }
-  s.ListenAndServe()
-  //http.ListenAndServe(":8080", nil)
-}
+*/

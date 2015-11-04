@@ -1,8 +1,6 @@
 package main
 
 import (
-  "github.com/thiagoao/GoLang-SimpleApi"
-  
   "github.com/jinzhu/gorm"
 )
 
