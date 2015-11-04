@@ -9,8 +9,9 @@ import (
 type User struct {
   gorm.Model
   Name       string     `sql:"type:varchar(50);index;not null" json:"name"`
-  Birthday   time.Time  `sql:"type:date;not null" json:"birthday"`
   Username   string     `sql:"type:varchar(20):not null;unique_index" json:"username"`
+  Password	 string		`sql:"not null" json:"-"`
+  Birthday   time.Time  `sql:"type:date;not null" json:"birthday"`
   Phones     []Phone    `json:"phones"`
   Emails     []Email    `json:"emails"`
   Languages  []Language `gorm:"many2many:user_languages;" json:"languages"`
