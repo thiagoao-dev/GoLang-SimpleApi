@@ -7,7 +7,7 @@ import (
   _ "github.com/go-sql-driver/mysql"
 )
 
-func getConn() (gorm.DB, error) {
+func getConn() (*gorm.DB, error) {
   log.Println("Starting database connection")
   
   db, err := gorm.Open("postgres", "user=gorm dbname=gorm sslmode=disable"); if err != nil {
