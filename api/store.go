@@ -7,20 +7,20 @@ import (
   _ "github.com/go-sql-driver/mysql"
 )
 
-func getConn() (*gorm.DB, error) {
+func getConn() gorm.DB {
   log.Println("Starting database connection")
   
-  db, err := gorm.Open("postgres", "user=gorm dbname=gorm sslmode=disable"); if err != nil {
+  db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local"); if err != nil {
     log.Println(err)
-    return nil, err
+    return nil
   }
   defer db.Close()
   // db, err := gorm.Open("foundation", "dbname=gorm") // FoundationDB.
-  // db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local")
+  // db, err := gorm.Open("postgres", "user=gorm dbname=gorm sslmode=disable")
   // db, err := gorm.Open("sqlite3", "/tmp/gorm.db")
 
   // Get database connection handle [*sql.DB](http://golang.org/pkg/database/sql/#DB)
-  db.DB()
+  //db.DB()
 
   // Then you could invoke `*sql.DB`'s functions with it
   db.DB().Ping()
@@ -30,5 +30,5 @@ func getConn() (*gorm.DB, error) {
   // Disable table name's pluralization
   // db.SingularTable(true)
 
-  return db.DB(), nil
+  return db.DB()
 }
