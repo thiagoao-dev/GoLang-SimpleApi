@@ -1,10 +1,13 @@
 package api
 
 import (
+  "log"
+  
   "github.com/jinzhu/gorm"
 )
 
-func migrationUp(db *gorm.DB) {
+func MigrationsUp(db *gorm.DB) {
+  log.Println("Starting migrations")
   
   // Drop table
   db.DropTable(&User{}, &Phone{}, &Email{}, &Language{})

@@ -2,13 +2,16 @@ package api
 
 import (
   "fmt"
+  "log"
   "time"
   "net/http"
   
   "github.com/gorilla/mux"
 )
 
-func UpRoutes() {
+func RoutesUp() {
+  log.Println("Starting routes")
+  
   r := mux.NewRouter()
   r.HandleFunc("/api", Hello).Methods("GET")
   //r.HandleFunc("/api/user/create", CreateUser).Methods("GET")

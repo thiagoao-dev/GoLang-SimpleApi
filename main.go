@@ -5,7 +5,12 @@ import (
 )
 
 func main() {
-	api.UpRoutes()
+  db, err := api.getConn(); err != nil {
+    
+  }
+  
+  api.MigrationsUp(db)
+  api.RoutesUp()
 }
 /*
 
