@@ -3,10 +3,10 @@ package main
 import (
   "fmt"
   "time"
-  "log"
+  //"log"
   "net/http"
-  "database/sql"
-  "encoding/json"
+  //"database/sql"
+  //"encoding/json"
   
   "github.com/gorilla/mux"
 )
