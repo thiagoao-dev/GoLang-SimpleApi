@@ -4,7 +4,7 @@ import (
   "github.com/jinzhu/gorm"
 )
 
-func migrationUp() error {
+func migrationUp(db *gorm.DB) {
   
   // Drop table
   db.DropTable(&User{}, &Phone{}, &Email{}, &Language{})

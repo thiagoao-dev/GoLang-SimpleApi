@@ -5,7 +5,7 @@ import (
     _ "github.com/go-sql-driver/mysql"
 )
 
-func getConn() *gorm.DB {
+func getConn() gorm.DB {
   db, err := gorm.Open("postgres", "user=gorm dbname=gorm sslmode=disable")
   // db, err := gorm.Open("foundation", "dbname=gorm") // FoundationDB.
   // db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local")
