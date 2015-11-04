@@ -1,7 +1,11 @@
 package main
 
+import (
+	"github.com/thiagoao/GoLang-SimpleApi/api"
+)
+
 func main() {
-	UpRoutes()
+	api.UpRoutes()
 }
 /*
 
