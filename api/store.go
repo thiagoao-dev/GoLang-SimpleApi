@@ -10,7 +10,7 @@ import (
 func GetConn() gorm.DB {
   log.Println("Starting database connection")
   
-  db, err := gorm.Open("mysql", "user01:fqxjXS6fh5eK3b64@tcp(104.197.132.233)/user01?charset=utf8&parseTime=True&loc=Local"); if err != nil {
+  db, err := gorm.Open("mysql", "user01:fqxjXS6fh5eK3b64@tcp(104.197.132.233:3306)/user01?charset=utf8"); if err != nil {
     log.Fatalln(err)
   }
   defer db.Close()
