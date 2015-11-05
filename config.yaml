@@ -1,0 +1,8 @@
+config:
+	db:
+   	host:
+      port:
+      dbname:
+      username:
+      password:
+      charset:
