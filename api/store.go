@@ -7,7 +7,7 @@ import (
   _ "github.com/go-sql-driver/mysql"
 )
 
-func getConn() gorm.DB {
+func GetConn() gorm.DB {
   log.Println("Starting database connection")
   
   db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local"); if err != nil {

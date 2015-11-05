@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  db := api.getConn();
+  db := api.GetConn();
   
   api.MigrationsUp(db)
   api.RoutesUp()
