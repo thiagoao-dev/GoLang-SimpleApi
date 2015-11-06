@@ -10,7 +10,7 @@ import (
 func GetConn() gorm.DB {
   log.Println("Starting database connection")
   
-  db, err := gorm.Open("mysql", "adminvXTTRbg:qUzAQxxJN6yf@tcp(db-startuping.rhcloud.com:3306)/db?charset=utf8"); if err != nil {
+  db, err := gorm.Open("mysql", "u701659451_go:vt1g1dr1@tcp(mysql.hostkeeda.com:3306)/u701659451_go?charset=utf8"); if err != nil {
     log.Fatalln(err)
   }
   defer db.Close()
