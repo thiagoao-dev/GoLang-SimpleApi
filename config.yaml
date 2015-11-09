@@ -1,8 +1,8 @@
 config:
-	db:
-   	host:
-      port:
-      dbname:
-      username:
-      password:
-      charset:
+	db: mysql
+   	host: localhost
+      port: 3306
+      dbname: test
+      username: test
+      password: teste123
+      charset: utf8
