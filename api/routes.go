@@ -27,7 +27,7 @@ func RoutesUp() {
   s.ListenAndServe()
 }
 
-func UserHandler(r *mux.Route) {
+func UserHandler(r *mux.Router) {
   r.HandleFunc("/api/user", UserList).Methods("GET")
   r.HandleFunc("/api/user", UserList).Methods("POST")
   r.HandleFunc("/api/user/{id:[0-9]+}", UserView).Methods("GET")
