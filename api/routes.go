@@ -29,9 +29,10 @@ func RoutesUp() {
 
 func UserHandler(r *mux.Router) {
   r.HandleFunc("/api/user", UserList).Methods("GET")
-  r.HandleFunc("/api/user", UserList).Methods("POST")
+  r.HandleFunc("/api/user", UserCreate).Methods("POST")
   r.HandleFunc("/api/user/{id:[0-9]+}", UserView).Methods("GET")
-  r.HandleFunc("/api/user/{id:[0-9]+}", UserView).Methods("PUT")
+  r.HandleFunc("/api/user/{id:[0-9]+}", UserUpdate).Methods("PUT")
+  r.HandleFunc("/api/user/{id:[0-9]+}", UserDelete).Methods("DELETE")
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
