@@ -6,6 +6,10 @@ import (
   "github.com/jinzhu/gorm"
 )
 
+type Users struct {
+	User[]
+}
+
 type User struct {
   gorm.Model
   Name       string     `sql:"type:varchar(50);index;not null" json:"name"`
@@ -18,13 +22,13 @@ type User struct {
 }
 
 type Phone struct {
-  ID   	int
+  ID     int
   Prefix string `sql:"type:varchar(3);not null" json:"phone_prefix"`
   Number string `sql:"type:varchar(10);not null" json:"phone_number"`
 }
 
 type Email struct {
-  ID   	 int
+  ID   	  int
   UserID  int    `sql:"index"`
   Email   string `sql:"type:varchar(100);not null" json:"email"`
   Primary bool   `sql:"type:boolean" json:"primary"`
@@ -34,4 +38,24 @@ type Language struct {
   ID   int
   Name string `sql:"unique_index:idx_name_code" json:"lang_name"`
   Code string `sql:"index:idx_name_code" json:"lang_code"`
+}
+
+func (u *Users) Get(user *User) error {
+  return nil
+}
+
+func (u *User) Create() error {
+  return nil
+}
+
+func (u *User) Get() error {
+  return nil
+}
+
+func (u *User) Put() error {
+  return nil
+}
+
+func (u *User) Delete() error {
+  return nil
 }
