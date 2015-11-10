@@ -14,7 +14,7 @@ func RoutesUp() {
   
   r := mux.NewRouter()
   
-  r.HandleFunc("/api", Hello).Methods("GET")
+  r.HandleFunc("/api", Hello).Methods("OPTIONS")
   UserHandler(r)
   
   http.Handle("/", r)
