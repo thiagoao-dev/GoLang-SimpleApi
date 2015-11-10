@@ -7,7 +7,7 @@ import (
 )
 
 type Users struct {
-	User[]
+	[]User
 }
 
 type User struct {
