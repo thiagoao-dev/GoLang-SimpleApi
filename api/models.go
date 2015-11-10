@@ -7,7 +7,7 @@ import (
 )
 
 type Users struct {
-	User[]
+	Users []User `sql:"-" json:"users"`
 }
 
 type User struct {
